@@ -4,3 +4,13 @@
   --blue: #30475e;
   --accentColor: #f05454;
 }
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--darkColor);
+  color: var(--clearColor);
+}
+
+input {
+  color: var(--clearColor);
+}

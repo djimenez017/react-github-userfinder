@@ -1,5 +1,18 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Button from "../components/UI/Button";
+import Input from "./UI/Input";
+import styled from "styled-components";
+
+const FormContainer = styled.form`
+  margin-bottom: 40px;
+
+  .form-fields {
+    width: 60%;
+    display: flex;
+    margin: 0 auto;
+  }
+`;
 
 const Form = (props) => {
   const [username, setUsername] = useState("");
@@ -13,20 +26,18 @@ const Form = (props) => {
   };
 
   return (
-    <form onSubmit={clickHandler}>
-      <div>
-        <input
+    <FormContainer onSubmit={clickHandler}>
+      <div className="form-fields">
+        <Input
           value={username}
           onChange={(event) => {
             setUsername(event.target.value);
           }}
-          type="text"
           placeholder="Github username"
-          required
         />
-        <button type="submit">Search</button>
+        <Button type={"submit"}>Search</Button>
       </div>
-    </form>
+    </FormContainer>
   );
 };
 

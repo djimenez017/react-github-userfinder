@@ -1,23 +1,32 @@
 import React, { useState } from "react";
-import { createGlobalStyle } from "styled-components";
 import Form from "../src/components/Form";
 import CardList from "./components/UI/CardList";
+import "@material-tailwind/react/tailwind.css";
+import styled from "styled-components";
+import "./App.css";
 
-const GlobalStyles = createGlobalStyle`
-  html {
-  --clearColor: #dddddd;
-  --darkColor: #222831;
-  --blue: #30475e;
-  --accentColor: #f05454;
-  margin: 0;
-  padding: 0;
-  box-sizing:border-box;
-  background: var(--darkColor);
-  color: var(--clearColor);
-  width:100%;
-  text-align: center;
+const Container = styled.div`
+  width: 100%;
   height: 100vh;
+  margin: 0 auto;
   display: flex;
+  flex-direction: column;
+
+  .SearchBar {
+    padding: 20px;
+  }
+
+  .FormContainer {
+    display: flex;
+    margin: 0 auto;
+  }
+
+  h1 {
+    text-align: center;
+    font-weight: bolder;
+    margin-bottom: 20px;
+    font-family: "Staatliches", cursive;
+    font-size: 40px;
   }
 `;
 
@@ -29,12 +38,13 @@ const App = () => {
   };
 
   return (
-    <div>
-      <GlobalStyles />
-      <h1>Search a Github user</h1>
-      <Form onSubmit={addNewCard} />
-      <CardList cards={cards} />
-    </div>
+    <Container>
+      <div className="SearchBar">
+        <h1>Search a Github user</h1>
+        <Form onSubmit={addNewCard} />
+        <CardList cards={cards} />
+      </div>
+    </Container>
   );
 };
 
